@@ -16,7 +16,6 @@ else {
 //   { command: "/start", description: "Почати знову" },
 //   { command: "/blackrate", description: "Отримати курс $ на чорному ринку" },
 //   { command: "/scheduleStart", description: "Отримувати курс валют регулярно о 9.00 ранку" }
-//   // ,
 //   // { command: "/scheduleStop", description: "Зупинити регулярне отримування курсу валют" }
 // ]);
 
