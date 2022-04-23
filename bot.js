@@ -1,6 +1,7 @@
 const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
+const start = require('./utils/start');
 let bot;
 
 if(process.env.NODE_ENV === 'production') {
@@ -11,13 +12,14 @@ else {
   bot = new Bot(token, { polling: true });
 }
 
-console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
+// bot.setMyCommands([
+//   { command: "/start", description: "Почати знову" },
+//   { command: "/blackrate", description: "Отримати курс $ на чорному ринку" },
+//   { command: "/scheduleStart", description: "Отримувати курс валют регулярно о 9.00 ранку" }
+//   // ,
+//   // { command: "/scheduleStop", description: "Зупинити регулярне отримування курсу валют" }
+// ]);
 
-bot.on('message', (msg) => {
-  const name = msg.from.first_name;
-  bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
-    // reply sent!
-  });
-});
+start(bot);
 
 module.exports = bot;
